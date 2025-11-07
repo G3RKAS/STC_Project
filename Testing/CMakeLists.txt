@@ -17,7 +17,7 @@ set  (TEST_SOURCES
 
 add_executable(RunTests ${TEST_SOURCES})
 
-target_link_libraries(RunTests gtest gmock)
+target_link_libraries(RunTests gtest gmock Proccessor)
 
 target_include_directories(RunTests PRIVATE
     get_target_property(gtest_include_dirs gtest INTERFACE_INCLUDE_DIRECTORIES)

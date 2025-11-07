@@ -1,6 +1,17 @@
-﻿set  (FILE_SOURCES
-	"ByteProccess.cpp"
-    "ByteProccess.h"
+﻿set  (PRIVATE_SOURCES
+	"Private/ByteProccessor.cpp"
 )
 
-add_executable (STC_Project ${FILE_SOURCES})
+set  (PUBLIC_SOURCES
+    "Public/ByteProccessor.h"
+	"Public/Source.h" 
+	"Public/Sink.h"
+)
+
+add_library(Proccessor ${PRIVATE_SOURCES} ${PUBLIC_SOURCES})
+
+target_include_directories(Proccessor 
+	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Private
+	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Public
+	INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/Public
+)
