@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <gtest/gtest.h>
 
 #include <ByteProcessor.h>
@@ -10,7 +10,7 @@ using ::testing::Return;
 using ::testing::StrEq;
 
 /*
-	Метод установки в буфер Buffer значения InByte
+	РњРµС‚РѕРґ СѓСЃС‚Р°РЅРѕРІРєРё РІ Р±СѓС„РµСЂ Buffer Р·РЅР°С‡РµРЅРёСЏ InByte
 */
 int64_t SetBuffer(char* Buffer, uint8_t InByte)
 {
@@ -20,7 +20,7 @@ int64_t SetBuffer(char* Buffer, uint8_t InByte)
 }
 
 /*
-	Тестирование работы Processor при чтения из буфера Source данных, попадающих под исключения UND/NULL
+	РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ СЂР°Р±РѕС‚С‹ Processor РїСЂРё С‡С‚РµРЅРёСЏ РёР· Р±СѓС„РµСЂР° Source РґР°РЅРЅС‹С…, РїРѕРїР°РґР°СЋС‰РёС… РїРѕРґ РёСЃРєР»СЋС‡РµРЅРёСЏ UND/NULL
 */
 TEST(ProccessorWorkTesting, WrongDataInput)
 {
@@ -71,7 +71,7 @@ TEST(ProccessorWorkTesting, WrongDataInput)
 }
 
 /*
-	Тестирование работы Processor при чтения из буфера Source данных, представляющих беззнаковое целое
+	РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ СЂР°Р±РѕС‚С‹ Processor РїСЂРё С‡С‚РµРЅРёСЏ РёР· Р±СѓС„РµСЂР° Source РґР°РЅРЅС‹С…, РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‰РёС… Р±РµР·Р·РЅР°РєРѕРІРѕРµ С†РµР»РѕРµ
 */
 TEST(ProccessorWorkTesting, CorrectDataInputCase1)
 {
@@ -120,7 +120,7 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase1)
 }
 
 /*
-	Тестирование работы Processor при чтения из буфера Source данных, представляющих знаковое целое
+	РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ СЂР°Р±РѕС‚С‹ Processor РїСЂРё С‡С‚РµРЅРёСЏ РёР· Р±СѓС„РµСЂР° Source РґР°РЅРЅС‹С…, РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‰РёС… Р·РЅР°РєРѕРІРѕРµ С†РµР»РѕРµ
 */
 TEST(ProccessorWorkTesting, CorrectDataInputCase2)
 {
@@ -169,7 +169,7 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase2)
 }
 
 /*
-	Тестирование работы Processor при чтения из буфера Source данных, представляющих литерал
+	РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ СЂР°Р±РѕС‚С‹ Processor РїСЂРё С‡С‚РµРЅРёСЏ РёР· Р±СѓС„РµСЂР° Source РґР°РЅРЅС‹С…, РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‰РёС… Р»РёС‚РµСЂР°Р»
 */
 TEST(ProccessorWorkTesting, CorrectDataInputCase3)
 {
