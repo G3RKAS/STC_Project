@@ -8,7 +8,7 @@ set  (PUBLIC_SOURCES
 	"Public/Sink.h"
 )
 
-add_library(Proccessor ${PRIVATE_SOURCES} ${PUBLIC_SOURCES})
+add_library(Proccessor ${PRIVATE_SOURCES})
 
 target_include_directories(Proccessor 
 	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Private
