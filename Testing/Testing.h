@@ -9,6 +9,13 @@ using ::testing::_;
 using ::testing::Return;
 using ::testing::StrEq;
 
+int64_t SetBuffer(char* Buffer, uint8_t InByte)
+{
+	Buffer[0] = InByte;
+
+	return 1;
+}
+
 TEST(ProccessorWorkTesting, WrongDataInput)
 {
 	ByteProcessor Processor;
@@ -19,23 +26,19 @@ TEST(ProccessorWorkTesting, WrongDataInput)
 	EXPECT_CALL(SourceDevice, Read(_, 1))
 		.WillOnce([](char* Buffer, int64_t size)
 		{
-			Buffer[0] = 0b11000000;
-			return 1;
+			return SetBuffer(Buffer, 0b11000000);
 		})
 		.WillOnce([](char* Buffer, int64_t size)
 		{
-			Buffer[0] = 0b11001110;
-			return 1;
+			return SetBuffer(Buffer, 0b11001110);
 		})
 		.WillOnce([](char* Buffer, int64_t size)
 		{
-			Buffer[0] = 0b10011010;
-			return 1;
+			return SetBuffer(Buffer, 0b10011010);
 		})
 		.WillOnce([](char* Buffer, int64_t size)
 		{
-			Buffer[0] = 0b10111111;
-			return 1;
+			return SetBuffer(Buffer, 0b10111111);
 		})
 		.WillRepeatedly(Return(-1));
 
@@ -71,18 +74,15 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase1)
 	EXPECT_CALL(SourceDevice, Read(_, 1))
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b00000000;
-				return 1;
+				return SetBuffer(Buffer, 0b00000000);
 			})
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b00001111;
-				return 1;
+				return SetBuffer(Buffer, 0b00001111);
 			})
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b00111111;
-				return 1;
+				return SetBuffer(Buffer, 0b00111111);
 			})
 		.WillRepeatedly(Return(-1));
 
@@ -120,18 +120,15 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase2)
 	EXPECT_CALL(SourceDevice, Read(_, 1))
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b01100000;
-				return 1;
+				return SetBuffer(Buffer, 0b01100000);
 			})
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b01001111;
-				return 1;
+				return SetBuffer(Buffer, 0b01001111);
 			})
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b01111111;
-				return 1;
+				return SetBuffer(Buffer, 0b01111111);
 			})
 		.WillRepeatedly(Return(-1));
 
@@ -169,18 +166,15 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase3)
 	EXPECT_CALL(SourceDevice, Read(_, 1))
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b10000000;
-				return 1;
+				return SetBuffer(Buffer, 0b10000000);
 			})
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b10001101;
-				return 1;
+				return SetBuffer(Buffer, 0b10001101);
 			})
 		.WillOnce([](char* Buffer, int64_t size)
 			{
-				Buffer[0] = 0b10011001;
-				return 1;
+				return SetBuffer(Buffer, 0b10011001);
 			})
 		.WillRepeatedly(Return(-1));
 
@@ -206,19 +200,4 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase3)
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	Processor.StopAllExisitingWorks();
-}
-
-// TODO
-TEST(ProccessorWorkTesting, MultiThreadTesting)
-{
-	ByteProcessor Processor;
-
-	MockSource SourceDevice;
-	MockSink SinkDevice;
-
-	//Processor.StartNewWork(&SourceDevice, &SinkDevice);
-
-	std::this_thread::sleep_for(std::chrono::seconds(1));
-
-	//Processor.StopAllExisitingWorks();
 }
