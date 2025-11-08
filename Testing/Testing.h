@@ -9,6 +9,9 @@ using ::testing::_;
 using ::testing::Return;
 using ::testing::StrEq;
 
+/*
+	Метод установки в буфер Buffer значения InByte
+*/
 int64_t SetBuffer(char* Buffer, uint8_t InByte)
 {
 	Buffer[0] = InByte;
@@ -16,6 +19,9 @@ int64_t SetBuffer(char* Buffer, uint8_t InByte)
 	return 1;
 }
 
+/*
+	Тестирование работы Processor при чтения из буфера Source данных, попадающих под исключения UND/NULL
+*/
 TEST(ProccessorWorkTesting, WrongDataInput)
 {
 	ByteProcessor Processor;
@@ -64,6 +70,9 @@ TEST(ProccessorWorkTesting, WrongDataInput)
 	Processor.StopAllExisitingWorks();
 }
 
+/*
+	Тестирование работы Processor при чтения из буфера Source данных, представляющих беззнаковое целое
+*/
 TEST(ProccessorWorkTesting, CorrectDataInputCase1)
 {
 	ByteProcessor Processor;
@@ -110,6 +119,9 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase1)
 	Processor.StopAllExisitingWorks();
 }
 
+/*
+	Тестирование работы Processor при чтения из буфера Source данных, представляющих знаковое целое
+*/
 TEST(ProccessorWorkTesting, CorrectDataInputCase2)
 {
 	ByteProcessor Processor;
@@ -156,6 +168,9 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase2)
 	Processor.StopAllExisitingWorks();
 }
 
+/*
+	Тестирование работы Processor при чтения из буфера Source данных, представляющих литерал
+*/
 TEST(ProccessorWorkTesting, CorrectDataInputCase3)
 {
 	ByteProcessor Processor;
