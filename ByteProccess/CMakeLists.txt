@@ -1,5 +1,5 @@
 ﻿set  (PRIVATE_SOURCES
-	"Private/ByteProccessor.cpp"
+	"Private/ByteProcessor.cpp"
 )
 
 set  (PUBLIC_SOURCES

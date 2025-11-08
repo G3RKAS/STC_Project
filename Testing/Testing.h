@@ -1,7 +1,7 @@
 #pragma once
 #include <gtest/gtest.h>
 
-#include <ByteProccessor.h>
+#include <ByteProcessor.h>
 #include <Mock.h>
 
 using ::testing::InSequence;
@@ -206,4 +206,19 @@ TEST(ProccessorWorkTesting, CorrectDataInputCase3)
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	Processor.StopAllExisitingWorks();
+}
+
+// TODO
+TEST(ProccessorWorkTesting, MultiThreadTesting)
+{
+	ByteProcessor Processor;
+
+	MockSource SourceDevice;
+	MockSink SinkDevice;
+
+	//Processor.StartNewWork(&SourceDevice, &SinkDevice);
+
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	//Processor.StopAllExisitingWorks();
 }
