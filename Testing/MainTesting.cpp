@@ -1,4 +1,5 @@
 #include <gmock/gmock.h>
+#include <Testing.h>
 
 int main(int argc, char** argv) 
 {
